@@ -1,6 +1,7 @@
 package com.chen.algorihm.other;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
 
 /**
@@ -152,5 +153,93 @@ public class SortedArray {
         return col;
     }
 
+
+    public class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode(int val) {
+            this.val = val;
+            this.next = null;
+        }
+    }
+
+    /**
+     * merge two Sorted Array.
+     *Given 1->3->8->11->15->null, 2->null
+     * return 1->2->3->8->11->15->null.
+     * @param l1 : the head of the linked list
+     * @param l2 : the head of the linked list
+     * @return : listNode head of linked list
+     */
+    public ListNode mergeTwoLists(ListNode l1, ListNode l2 ) {
+        ListNode dummy = new ListNode(0);
+        ListNode lastNode = dummy;
+
+        while (l1 != null && l2 != null) {
+            if (l1.val < l2.val) {
+                lastNode.next = l1;
+                l1 = l1.next;
+            } else {
+                lastNode.next = l2;
+                l2 = l2.next;
+            }
+            lastNode = lastNode.next;
+        }
+        if (l1 != null) {
+            lastNode.next = l1;
+        } else {
+            lastNode.next = l2;
+        }    // can replace with else if (l2 != null)
+
+        return dummy.next;
+    }
+
+    /**
+     * Remove Duplicates from Sorted List. (去掉重复元素)
+     * Given 1->1->2, return 1->2
+     * Given 1->1->1->2->3->3, return 1->2->3
+     * @param head: is the head of the linked list
+     * @return : ListNode of linked list.
+     */
+    public static ListNode deleteDuplicates(ListNode head) {
+        if (head == null) {
+            return null;
+        }
+        ListNode node = head;
+        while (node.next != null) {
+            if (node.val == node.next.val) {
+                node.next = node.next.next;
+            } else {
+                node = node.next;
+            }
+        }
+        return head;
+    }
+
+
+    /**
+     * Remove Duplicates From Unsorted List.
+     * Given 1->3->2->1->4, return 1->3->2->4
+     * 利用了hashSet的方法，contains().
+     * 在于对方法的利用，
+     * @param head: the first node of linked list.
+     * @return : head node
+     */
+    public ListNode removeDuplicates(ListNode head) {
+        HashSet<Integer> hash = new HashSet<Integer>();
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        head = dummy;
+        while (head.next != null) {
+            if (hash.contains(head.next.val)) {
+                head.next = head.next.next;
+            } else {
+                hash.add(head.next.val);
+                head = head.next;
+            }
+        }
+        return dummy.next;
+    }
 
 }
