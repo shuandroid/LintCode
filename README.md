@@ -3,4 +3,11 @@
 *全部是在andorid studio 上面写成java项目*  
 关于为何在AS上写代码，，因为方便，便于记录，和对以后的维护。  
 *目前记录内容：*  
-* binary 
+* Binary 
+  * Binary Tree
+  * Other Binary
+* Sorted Array
+* List  
+* Peak Of List
+* Search Binary
+* 二分法
