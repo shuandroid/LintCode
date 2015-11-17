@@ -1,5 +1,7 @@
 package com.chen.algorihm.other;
 
+import java.util.Arrays;
+
 /**
  * Created by chen
  * Date : 15-11-12
@@ -76,5 +78,59 @@ public class Solution  {
     }
 
 
+    /**
+     * Count and Say
+     * count and say sequence is : 1, 11, 21, 1211, 111221, ...
+     * 1 is read off as "one 1" or 11.
+     * 11 is read as "two 1s " or 21.
+     * 21 is read as "one 2, then one 1" or 1211.
+     * ...
+     * 后一个数是前一个数的读音。
+     * @param n: the number
+     * @return : the nth sequence.
+     */
+    public String countAndSay(int n) {
+        String oldString = "1";
+        while (--n > 0) {
+            StringBuilder sb = new StringBuilder();
+            char[] oldChars = oldString.toCharArray();
+            for (int i = 0; i < oldChars.length; i++) {
+                int count = 1;
+                while ((i + 1) < oldChars.length && oldChars[i] == oldChars[i+1]) {
+                    count++;
+                    i++;
+                }
+                sb.append(String.valueOf(count) + String.valueOf(oldChars[i]));
+            }
+            oldString = sb.toString();
+        }
+        return oldString;
+    }
 
+
+    /**
+     * Triangle count (三角形计数)
+     * 从一组数组里找三个数，构成三角形的可能性。
+     * @param s : a list of integers
+     * @return : an integer.
+     */
+    public int triangleCount(int s[]) {
+        int left = 0;
+        int right = s.length - 1;
+        int ans = 0;
+        Arrays.sort(s);
+        for(int i = 0; i < s.length; i++) {
+            left = 0;
+            right = i - 1;
+            while(left < right) {
+                if(s[left] + s[right] > s[i]) {
+                    ans = ans + (right - left);
+                    right --;
+                } else {
+                    left ++;
+                }
+            }
+        }
+        return ans;
+    }
 }
