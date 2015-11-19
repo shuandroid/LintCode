@@ -6,8 +6,8 @@
 * Binary 
   * Binary Tree
   * Other Binary
-  * Invert Binary Tree (翻转二叉树)
-     递归和非递归方式.
+  * Invert Binary Tree (翻转二叉树)  
+    递归和非递归方式.
 * Sorted Array
 * List  
 * Peak Of List
