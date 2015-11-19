@@ -1,6 +1,7 @@
 package com.chen.algorihm.other;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Stack;
 
@@ -165,6 +166,73 @@ public class BinaryTree {
         return result;
     }
 
+
+    /**
+     *  Invert Binary Tree : 翻转二叉树。
+     *  Traverse 递归实现，不利用递归的话，就利用栈实现。
+     * @param root : a TreeNode, the root of the binary tree.
+     * @return : nothing
+     */
+    public void invertBinaryTree (TreeNode root) {
+
+        if (root == null) {
+            return;
+        }
+        TreeNode temp = root.left;
+        root.left = root.right;
+        root.right = temp;
+        invertBinaryTree(root.left);
+        invertBinaryTree(root.right);
+    }
+
+
+    /**
+     * 不使用递归方式实现，利用栈，下面两个方法均是非递归。
+     * @param root
+     */
+    public void notRecursive( TreeNode root) {
+        if (root == null) {
+            return;
+        }
+        LinkedList<TreeNode> stack = new LinkedList<TreeNode>();
+        TreeNode temp = null;
+        stack.add(root);
+        while (stack.size() != 0) {
+            TreeNode node =  stack.removeFirst();
+            temp = node.left;
+            node.left = node.right;
+            node.right = temp;
+            if (node.right != null) {
+                stack.add(node.right);
+            }
+            if (node.left != null) {
+                stack.add(node.left);
+            }
+        }
+    }
+
+    public void mirror(TreeNode root) {
+        Stack<TreeNode> stack = new Stack<TreeNode>();
+        if (root == null) {
+            return;
+        }
+        stack.push(root);
+        TreeNode temp = null;
+        TreeNode node = null;
+        while (!stack.isEmpty()) {
+            node = stack.pop();
+            temp = node.left;
+            node.left = node.right;
+            node.right = temp;
+            if (node.left != null) {
+                stack.push(node.left);
+            }
+            if (node.right != null) {
+                stack.push(node.right);
+            }
+
+        }
+    }
 
 
 

@@ -117,4 +117,20 @@ public class Binary {
     }
 
 
+    /**
+     * Delete node in the middle of singly linked list.
+     * Given 1->2->3->4 and node 3 , return 1->2->4
+     * @param node: the node in the list should be deleted
+     * @return : nothing
+     */
+    public void deleteNode(ListNode node) {
+        // write your code here
+        if (node == null) {
+            return ;
+        }
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
+
+
 }
