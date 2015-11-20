@@ -242,4 +242,55 @@ public class SortedArray {
         return dummy.next;
     }
 
+
+    /**
+     * trapping rain water(接雨水)
+     * 给出n个非负整数，代表一张x轴上每个区域宽度为1的海拔图，
+     * 计算这个海拔图最多能接住多少（面积）雨水。
+     * Given [0,1,0,2,1,0,1,3,2,1,2,1] return 6
+     * challenge : O(n) time and O(1) memory,
+     * O(n)time and O(n) memory is also acceptable.
+     * @param A: an array of integers
+     * @return : a integer.
+     */
+    /**
+     *
+     */
+    public int trapRainWater(int[] A) {
+        int sum = 0;
+        int max = -1;
+        int maxIndex = -1;
+        int prev;
+        //find the highest bar
+        for (int i = 0; i < A.length; i++) {
+            if (max < A[i]) {
+                max = A[i];
+                maxIndex = i;
+            }
+        }
+        //process all bars left to the highest bar
+        prev = 0;
+        for (int i = 0; i < maxIndex; i++) {
+            if (A[i] > prev) {
+                sum += (A[i] - prev) * (maxIndex - i);
+                prev = A[i];
+            }
+            sum -= A[i];
+        }
+
+        // process all bars right to the highest bar
+        prev = 0;
+        for (int i = A.length - 1; i > maxIndex; i--) {
+            if (A[i] > prev) {
+                sum += (A[i] - prev) * (i - maxIndex);
+                prev = A[i];
+            }
+            sum -= A[i];
+        }
+
+        return sum;
+
+
+    }
+
 }
