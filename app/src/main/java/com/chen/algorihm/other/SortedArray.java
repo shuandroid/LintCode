@@ -254,7 +254,10 @@ public class SortedArray {
      * @return : a integer.
      */
     /**
-     *
+     *扫两遍。 对某个值A[i]来说，能trapped的最多的water取决于在i之前左边的最高值和在i右边的最高的值
+     * 然后取当中较小的一个.可以根据上面的分析先从左到右扫一遍得到数组LeftMostHeight,
+     * 然后再从右到左计算RightMostHeight，这样只扫了两遍
+     * 可以得到答案，时间复杂度是O(n)，空间复杂度是O(n).
      */
     public int trapRainWater(int[] A) {
         int sum = 0;
@@ -289,7 +292,33 @@ public class SortedArray {
         }
 
         return sum;
+    }
 
+    //version 2:
+    /**
+     * 两个指针扫一遍，两个指针的题目。指针属性是对撞型指针。
+     * 所以用两个指针分别指向数组的头和数组尾，
+     * 然后每次比较两个指针所指向的值，选小值指针向中间移动
+     * 并且每次更新遍历LeftMostHeight或者RightMostHeight，
+     * 这样就可以算出每个点的可以接的雨水数目，
+     * 时间复杂度是O(n),控件复杂度是O(1).
+     * this way : time is O(n), and memory is O(1).
+     */
+    public int trapRainWaterTwo(int[] heights) {
+
+        if (heights.length == 0) {
+            return 0;
+        }
+        int[] maxHeights = new int[heights.length + 1];
+        maxHeights[0] = 0;
+        for (int i = 0; i < heights.length; i++) {
+            maxHeights[i+1] = Math.max(maxHeights[i], heights[i]);
+
+        }
+        int max = 0;
+        int area = 0;
+
+        return area;
 
     }
 
