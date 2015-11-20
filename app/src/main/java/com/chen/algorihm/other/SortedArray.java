@@ -318,6 +318,12 @@ public class SortedArray {
         int max = 0;
         int area = 0;
 
+        for (int i = heights.length - 1; i >= 0; i++) {
+            area += Math.min(max, maxHeights[i]) > heights[i]
+                    ? Math.min(max, maxHeights[i]) - heights[i]
+                    : 0;
+            max = Math.max(max, heights[i]);
+        }
         return area;
 
     }
