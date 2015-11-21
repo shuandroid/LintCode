@@ -5,8 +5,8 @@
 * 什么样的题适合使用动态规划  
  满足下面三个条件：
   * 求最小最大
-  * 条件
-  * 个数
+  * 求能不能，存不存在
+  * 方案总数
  不使用： 
   * 求出所有具体方案，而不是方案个数：
   * 输入的是集合，没有先后关系，而不是序列。
@@ -56,7 +56,7 @@ lintcode上面的题目：triangle（树的三角形）
 *坐标型动态规划*  
 
 state：
-f[x]表示从起点走到坐标x  
+f[x] ：&#160;&#160;表示从起点走到坐标x  
 f[x][y]  
 functioin: 研究走到x, y这一点前的一步  
 
@@ -65,8 +65,27 @@ intialize : 终点
 题：minimum path sum   
 unique paths.  
 
+state ： f[x][y] 从起点到x,y的路径数  
+function: (研究倒数第一步) f[x][y] = f[x-1][y] + f[x][y-1]   
+intialize: f[0][i] = 1  
+f[i][0] = 1  
+answer : f[n-1][m-1]  
+
+*题目:*  
+
+unique paths 2.  
+climbing stairs.  
+jump game. &#160;&#160; jumo game 2.  
+two sum.  
+scramble String.  
+k sum  
+backpack  
 
 
+#Concusion  
+* why DP?  
+* when DP?
+* how DP?  
 
 > 我的问题： 需要重新看一下，之前专业课，老师讲的算法导论和数据结构，一些基本的概念要明白，  
 > 熟悉在心。
