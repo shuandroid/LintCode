@@ -49,12 +49,12 @@ longest Common Subsequence.  最长公共子序列。
 function: f[i][j] = max{f[i-1][j], f[i][j-1]}     //a[i] == b[j]  
 initialize : 
 
-
-
-
-
-
-
 ####题目：  
 * palindrome Partitioning II.
 * word break.
+* longest common ancestor
+* longest increasing subsequence
+* edit distance
+* distinct subsequence
+* interleaving string
+* longest common Subsequence.
