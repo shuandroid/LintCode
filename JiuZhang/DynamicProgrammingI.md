@@ -47,7 +47,6 @@ lintcode上面的题目：triangle（树的三角形）
 
 #### 四个要素：  
 * 状态 state  
-  * 
 * 方程：function
 * 初始化: initialization
 * 答案：answer
