@@ -83,5 +83,48 @@ public class DPFirst  {
     }
 
 
+    /**
+     * Each element in the array represents your maximum jump length at that position.
+     * A = [2,3,1,1,4], return true.
+     * A = [3,2,1,0,4], return false.
+     * @param A : a list of integers
+     * @return : the boolean answer.
+     */
+    //TODO: use Dynamic Programming, and time complexity is O(n^2).
+    public boolean canJUmp(int[] A) {
+        if (A == null || A.length == 0) {
+            return false;
+        }
+        boolean[] can = new boolean[A.length];
+        can[0] = true;
+        for (int i = 1; i < A.length; i++) {
+            for (int j = 0; j < i; j++) {
+                //j can arrive and can jump to 1.
+                if (can[j] && j + A[j] >= i) {
+                    can[i] = true;
+                    break;
+                }
+            }
+        }
+        return can[A.length - 1];
+    }
+
+    //TODO: use Greedy ,and time complexity is O(n).
+    public boolean canJump(int[] A) {
+        if (A == null || A.length == 0) {
+            return false;
+        }
+        int farthest = A[0];
+        for (int i = 1; i < A.length; i++) {
+            // i <= farthest and make the farthest can arrive at the end.
+            if (i <= farthest && A[i] + i >= farthest) {
+                farthest = A[i] + i;
+            }
+        }
+        return farthest >= A.length - 1;
+    }
+
+
+
 
 }
