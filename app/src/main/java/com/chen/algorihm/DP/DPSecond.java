@@ -1,6 +1,9 @@
 package com.chen.algorihm.DP;
 
+import com.chen.algorihm.utils.TreeNode;
+
 import java.util.ArrayList;
+import java.util.Set;
 
 /**
  * Created by chen
@@ -123,5 +126,90 @@ public class DPSecond  {
         }
         return isPalindrome;
     }
+
+
+    /**
+     * Word Break
+     * given s = "lintcode" , dictionary = ["lint", "code"]
+     * return true because "lintcode" can be break as "lint code"
+     * 思想 ：
+     * @param s : a string s
+     * @param dictionary : a dictionary of words dictionary.
+     * @return : true or false
+     */
+    public boolean wordBreak(String s, Set<String> dictionary) {
+
+        //Set<> 为同种对象的集合, Set<String> 是指是String对象的集合
+        if (s == null || s.length() == 0) {
+            return true;
+        }
+        int maxLength = getMaxLength(dictionary);
+        boolean[] canSegment = new boolean[s.length() + 1];
+        canSegment[0] = true;
+
+        for (int i = 1; i <= s.length(); i++) {
+            canSegment[i] = false;
+            for (int lastWordLength = 1; lastWordLength <= maxLength && lastWordLength <= i;
+                    lastWordLength++) {
+                //TODO :  在动态规划中， 考虑的都是到i这个位置时，前面所形成的 A 是否符合要求，
+                //todo: 而不是从i 到后面的一些位置所形成的 B 是否符合要求
+                if (!canSegment[i - lastWordLength]) {
+                    continue;
+                }
+                String word = s.substring(i - lastWordLength, i);
+                if (dictionary.contains(word)) {
+                    canSegment[i] = true;
+                    break;
+                }
+            }
+        }
+
+        return canSegment[s.length()];
+    }
+    /**
+     *  to get the longest string in dictionary.
+     */
+    private int getMaxLength(Set<String> dictionary) {
+        int maxLength = 0;
+        for (String word : dictionary) {
+            maxLength = Math.max(maxLength, word.length());
+        }
+
+        return maxLength;
+    }
+
+    /**
+     *  Lowest Common Ancestor
+     *  求两个节点(nodes)的最近公共祖先, 父节点.
+     * @param root : the root of the binary search tree
+     * @param A & B : two nodes in a binary.
+     * @return : return the least common ancestor(LCA) of the two nodes.
+     */
+    //TODO : divide and conquer 分治
+    public TreeNode lowestCommonAncestor(TreeNode root, TreeNode A, TreeNode B) {
+
+        if (root == null || root == A || root == B) {
+            return root;
+        }
+        //Divide
+        TreeNode left = lowestCommonAncestor(root.left, A, B);
+        TreeNode right = lowestCommonAncestor(root.right, A, B);
+
+        //conquer
+        if (left != null && right != null ) {
+            return root;
+        }
+        if (left != null) {
+            return left;
+        }
+
+        if (right != null) {
+            return right;
+        }
+
+        return null;
+    }
+
+
 
 }

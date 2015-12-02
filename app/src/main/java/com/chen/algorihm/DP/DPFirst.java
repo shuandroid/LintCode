@@ -10,6 +10,18 @@ import java.util.HashMap;
  */
 public class DPFirst  {
 
+
+    /**
+     * 动态规划四个要素 ：
+     * 状态 ： state
+     * 方程 ： function
+     * 初始化 ： initialization
+     * 答案 : answer
+     */
+
+
+
+
     /**
      * Unique paths.
      * 在网格里寻找向右下脚移动的路径.
