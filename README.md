@@ -13,4 +13,27 @@
 * Peak Of List
 * Search Binary
 * 二分法
-* 
+
+**动态规划 Dynamic Programming**  
+*题目:*  
+
+* unique paths 2.  
+* climbing stairs.  
+* jump game. &#160;&#160; jumo game 2.  
+* two sum.  
+* scramble String.  
+* k sum  
+* backpack  
+* palindrome Partitioning II.
+* word break.
+* longest common ancestor
+* longest increasing subsequence
+* edit distance
+* distinct subsequence
+* interleaving string
+* longest common Subsequence.  
+
+> waiting  
+> chenzhao@hustunique.com  
+
+
