@@ -31,7 +31,9 @@
 * edit distance
 * distinct subsequence
 * interleaving string
-* longest common Subsequence.  
+* longest common Subsequence. 
+* Lowest Common Ancestor  
+
 
 > waiting  
 > chenzhao@hustunique.com  
