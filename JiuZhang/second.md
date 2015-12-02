@@ -1,5 +1,5 @@
 ### Binary  Search Tree  
-** 二分查找 **  
+**二分查找**  
 #### Time Complexity 时间复杂度
 
 * T(n) = O(1) + T( n/2)  = O（log n）
@@ -8,7 +8,7 @@
 * T(n) =  O(1) + 2T(n/2)
     时间复杂度： 还是O(n)  
 
-** Recursion or While Loop **  
+**Recursion or While Loop**  
 推荐使用 while loop
 * 递归消耗资源
 * 使用非递归， while 循环。
@@ -19,7 +19,7 @@
     3. A[mid]==
     4. 
 
-** when and  How **
+**when and  How**
 * 需要优化一个O(n)的暴力算法得到一个更快的算法。
 * sorted assry or Rotated Sorted Array.
 * 找到第一个,或者是最后一个。
