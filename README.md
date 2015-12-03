@@ -28,7 +28,7 @@
 * word break.
 * longest common ancestor
 * longest increasing subsequence
-* edit distance (finish)
+* edit distance &#160;&#160;&#160;&#160; (finish)
 * distinct subsequence
 * interleaving string
 * longest common Subsequence. 
