@@ -211,5 +211,46 @@ public class DPSecond  {
     }
 
 
+    /**
+     * Edit Distance
+     * 给出两个单词，计算出 将单词1转换为单词2 的最少操作次数
+     * 三种操作方法 ： 插入一个字符，删除一个字符，替换一个字符
+     * given word1 = "mart" . word2 = "karma"
+     * return 3.
+     * @param wordOne :
+     * @param wordTwo : two string
+     * @return : the minimum number of steps
+     */
+    public int minDistance(String wordOne, String wordTwo) {
+        int n = wordOne.length();
+        int m = wordTwo.length();
+
+        int[][] dp = new int[n + 1][m + 1];
+        for (int i = 1; i < m + 1; i++) {
+            dp[0][i] = i;
+        }
+        for (int i = 1; i < n + 1; i++) {
+            dp[i][0] = i;
+        }
+
+        for (int i = 1; i < n + 1; i++) {
+            for (int j = 1; j < m + 1; j++) {
+                if (wordOne.charAt(i - 1) == wordTwo.charAt(j - 1)) {
+                    dp[i][j] = dp[i - 1][j - 1];
+                } else {
+                    dp[i][j] = 1 + Math.min(dp[i - 1][j - 1],
+                            Math.min(dp[i - 1][j], dp[i][j - 1]));
+                }
+            }
+        }
+        return dp[n][m];
+
+    }
+
+
+
+
+
+
 
 }
