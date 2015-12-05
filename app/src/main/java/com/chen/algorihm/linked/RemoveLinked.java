@@ -1,4 +1,4 @@
-package com.chen.algorihm.linted;
+package com.chen.algorihm.linked;
 
 /**
  * Created by chen
