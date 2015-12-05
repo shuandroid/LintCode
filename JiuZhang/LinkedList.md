@@ -31,8 +31,10 @@ merge sort(归并排序), quick sort(快排), heap sort(堆排序)
 list : merge sort  
 array : quick sort  
 
-
-
+* 判断一个链表是否成环  
+	利用快慢指针
+	如果fast与slow相遇，则链表里面有环。
+	
 **题目：**  
   
 * Remove Duplicates from  Sored List 
@@ -41,3 +43,9 @@ array : quick sort
 * Reverse Linked List #&160;#&160; 反转链表  
 * partition list 
 * Reorder list 
+* Linked list Cycle
+* Linked List Cycle II
+* Rotate list
+* Merge k Sorted Lists  
+* Copy List with Random Pointer
+* convert Sorted List
