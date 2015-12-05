@@ -28,14 +28,17 @@
 * word break.
 * longest common ancestor
 * longest increasing subsequence
-* edit distance
+* edit distance &#160;&#160;&#160;&#160; (finish)
 * distinct subsequence
 * interleaving string
 * longest common Subsequence. 
 * Lowest Common Ancestor  
 
 
+
+
 > waiting  
 > chenzhao@hustunique.com  
-
+> Blog:  http://shuandroid.github.io/
+> 算法笔记 欢迎交流学习  
 
