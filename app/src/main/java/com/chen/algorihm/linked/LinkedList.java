@@ -256,6 +256,65 @@ public class LinkedList  {
 
     }
 
+    /**
+     * Linked list Cycle
+     * 利用双指针，一块，一慢，若他们能够相遇，则，该链表有环.
+     * 思想和上面的差不多.
+     * @param head : the head of linked list
+     * @return : weather it has a cycle or not
+     */
+    public boolean hasCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return false;
+        }
+
+        ListNode fast, slow;
+        fast = head.next;
+        slow = head;
+        while (fast != slow) {
+            if (fast == null || fast.next == null) {
+                return false;
+            }
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+        return true;
+    }
+
+
+    /**
+     * Linked list Cycle II
+     * solve it without using extra space
+     * 给定一个链表，如果链表中存在环，则返回到链表中环的起始节点的值，如果没有环，返回null。
+     * @param head : the first of linked list
+     * @return :
+     */
+    public ListNode detectCycle(ListNode head) {
+        if (head == null || head.next == null) {
+            return null;
+        }
+
+        //也是利用双指针的作用
+        ListNode fast, slow;
+        fast = head.next;
+        slow = head;
+        while (fast != slow) {
+            if (fast == null || fast.next == null) {
+                return null;
+            }
+            fast = fast.next.next;
+            slow = slow.next;
+        }
+
+        //运行到这里，说明是fast == slow, 说明环出现，
+        //此时，执行while 循环，最终相遇的地方肯定是环的开始节点
+        while (head != slow.next) {
+            head = head.next;
+            slow = slow.next;
+        }
+
+        return head;
+    }
 
 
 }
