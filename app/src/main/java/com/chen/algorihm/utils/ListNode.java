@@ -8,7 +8,7 @@ package com.chen.algorihm.utils;
  */
 public class ListNode  {
     public int val ;
-    ListNode next;
+    public ListNode next;
 
     public ListNode(int values) {
         val = values;
