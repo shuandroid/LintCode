@@ -1,6 +1,7 @@
 package com.chen.algorihm.linked;
 
 import com.chen.algorihm.utils.ListNode;
+import com.chen.algorihm.utils.TreeNode;
 
 /**
  * Created by chen
@@ -369,6 +370,103 @@ public class LinkedList  {
         }
 
         return length;
+    }
+
+
+    /**
+     * Copy List with Random Pointer
+     * 给出一个链表，每个节点包含一个额外增加的随机指针可以指向链表中的任何节点或空的节点
+     * 利用 O(1) 的空间.
+     * @param head : the head of linked list with a random pointer
+     * @return : a new head of a deep copy of the list
+     */
+    public RandomListNode copyRandomList(RandomListNode head) {
+        if (head == null) {
+            return null;
+        }
+        copyNext(head);
+        copyRandom(head);
+        return splitList(head);
+    }
+
+    private void copyNext(RandomListNode head) {
+        while (head != null) {
+            RandomListNode newNode = new RandomListNode(head.label);
+            newNode.random = head.random;
+            newNode.next = head.next;
+            head.next = newNode;
+            head = head.next.next;
+        }
+    }
+
+
+    public class RandomListNode  {
+        int label;
+        RandomListNode next, random;
+        RandomListNode(int x) {
+            this.label = x;
+        }
+    }
+
+    private void copyRandom(RandomListNode head) {
+        while (head != null) {
+            if (head.next.random != null) {
+                head.next.random = head.random.next;
+            }
+            head = head.next.next;
+        }
+    }
+
+    private RandomListNode splitList(RandomListNode head) {
+        RandomListNode newHead = head.next;
+        while (head != null) {
+            RandomListNode temp = head.next;
+            head.next = temp.next;
+            head = head.next;
+            if (temp.next != null) {
+                temp.next = temp.next.next;
+            }
+        }
+        return newHead;
+    }
+
+
+    /**
+     * COnvert Sorted List To Binary Search Tree.
+     * @param head :
+     * @return :
+     */
+
+    private ListNode current;
+    private int getListLength(ListNode head) {
+        int size = 0;
+        while (head != null) {
+            size++;
+            head = head.next;
+        }
+        return size;
+    }
+
+    public TreeNode sortedListToBST(ListNode head) {
+        int size;
+
+        current = head;
+        size = getListLength(head);
+        return sortedListToBSTHelper(size);
+    }
+
+    private TreeNode sortedListToBSTHelper(int size) {
+        if (size <= 0) {
+            return null;
+        }
+
+        TreeNode left = sortedListToBSTHelper(size / 2);
+        TreeNode root = new TreeNode(current.val);
+        current = current.next;
+        TreeNode right = sortedListToBSTHelper(size - 1 - size / 2);
+        root.left = left;
+        root.right = right;
+        return root;
     }
 
 
