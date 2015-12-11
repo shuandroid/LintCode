@@ -317,4 +317,59 @@ public class LinkedList  {
     }
 
 
+    /**
+     * Rotate List
+     * 给出链表1->2->3->4->5->null和k=2
+     * 返回4->5->1->2->3->null
+     * 给定一个链表，旋转链表，使得每个节点向右移动k个位置，其中k是一个非负数
+     *
+     * @param head : the list
+     * @param k : rotate to the right k places
+     * @return : the list after rotation
+     */
+    public ListNode rotateRight(ListNode head, int k) {
+        if (head == null) {
+            return null;
+        }
+        int length = getLength(head);
+        k = k % length;
+        ListNode dummy = new ListNode(0);
+        dummy.next = head;
+        head = dummy;
+
+        ListNode tail = dummy;
+        for (int i = 0; i < k; i++) {
+            head = head.next;
+        }
+
+        /**while 后，tail 指向倒数第k + 1 个节点(3)。head 在最后的节点(5)，且head.next == null .**/
+
+        while (head.next != null) {
+            tail = tail.next;
+            head = head.next;
+        }
+
+        /**head.next 由原来的Null, 指向原链表的头(1)**/
+        /**然后tail 的next 为（4， 5）， 即此时为 0->4->5->1->2->3->4->5**/
+        /**然后使tail.next 为null, 即节点3后为null, 这样的话， 聊表为0->4->5->1->2->3->null **/
+        head.next = dummy.next;
+        dummy.next = tail.next;
+        tail.next = null;
+
+        return dummy.next;
+
+    }
+
+    /**获取链表的长度**/
+    private int getLength(ListNode head) {
+        int length = 0;
+        while (head != null) {
+            length++;
+            head = head.next;
+        }
+
+        return length;
+    }
+
+
 }
