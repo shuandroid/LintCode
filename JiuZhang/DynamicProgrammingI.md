@@ -1,5 +1,5 @@
 ## Dynamic Programming I
-*第四次课*
+**第四次课**
 * 从递归到动归 -Triangle  
  
 * 什么样的题适合使用动态规划  
@@ -24,7 +24,8 @@ lintcode上面的题目：triangle（树的三角形）
 * Divide Conquer + Memorization (建表优化)  
   time complexity:  O(n^2) 
   在return之前，用hashmap表存储,去掉重复访问的元素，优化。
-* 
+
+
 
 ## Memorization Search(记忆化搜索)  
 动态规划是一种思想， 它解决了重复计算，优化了算法  
@@ -52,7 +53,7 @@ lintcode上面的题目：triangle（树的三角形）
 * 答案：answer
  终点，始点
 
-*坐标型动态规划*  
+**坐标型动态规划**  
 
 state：
 f[x] ：&#160;&#160;表示从起点走到坐标x  
@@ -70,7 +71,7 @@ intialize: f[0][i] = 1
 f[i][0] = 1  
 answer : f[n-1][m-1]  
 
-*题目:*  
+**题目:**  
 
 unique paths 2.  
 climbing stairs.  
@@ -80,8 +81,7 @@ scramble String.
 k sum  
 backpack  
 
-
-#Concusion  
+# Concusion  
 * why DP?  
 * when DP?
 * how DP?  
