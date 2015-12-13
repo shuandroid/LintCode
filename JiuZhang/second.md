@@ -9,15 +9,19 @@
     时间复杂度： 还是O(n)  
 
 **Recursion or While Loop**  
-推荐使用 while loop
-* 递归消耗资源
+推荐使用 while loop  
+
+* 递归消耗资源  
+
 * 使用非递归， while 循环。
   - 循环结束条件
   - 四点要素
     1. start + 1 < end;
     2. mid = start + (end - start) / 2;
-    3. A[mid]==
-    4. 
+    3. A[mid]==, < , > 
+    4. A[start] A[end] ? target  
+
+
 
 **when and  How**
 * 需要优化一个O(n)的暴力算法得到一个更快的算法。
@@ -44,3 +48,13 @@ O(log n) search target in Rotated sorted Array.
 
 **Recover Rotated Sorted Array.**  
 三步翻转法：  
+
+
+**题目**  
+
+* Search Insert Position  
+* Search in a Big Sorted Array
+* First Bad Version 
+* Find Peak Element  
+* Recover Rotated Sorted Array
+
