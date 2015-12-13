@@ -1,15 +1,11 @@
 ### 九章第一节 strStr
-
-
 **其中包含的有一些，KMP算法，string.charAt()函数**
-
 
 * coding style 
   变量名， 空格， 换行，   
   Google style 在看一遍  
   Java程序花括号在最右边（同一行右侧）  
   
-
 * 检查是否为空 null
   检查null, 这个很重要
 * 对时间复杂度，空间复杂度的考虑
