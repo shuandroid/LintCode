@@ -29,7 +29,7 @@
   - Letter Combination of a Photo Number
   - Palindrome Par
 
-> 第一节课内容结束，题目训练.
+> 第一节课内容结束，题目训练. 详情 [strStr](https://github.com/shuandroid/LintCode/blob/master/JiuZhang/strStr.md)
 
 ### Binary Search Tree (二叉查找树)
 > 第二次课， Binary Search Tree  
@@ -73,24 +73,26 @@
 * Merge Sorted Array II
 * Rotate String  
 
-> 第二次课结束.  
+> 第二次课结束.  详情 [BinartSearchTree](https://github.com/shuandroid/LintCode/blob/master/JiuZhang/second.md)
 
+### 第三次  
+> miss  
 
+### Dynamic Programming I (动态规划)
+> 第四次课 DP I  
+* 什么样的题适合使用动态规划  
+  满足下面三个条件：
+  * 求最小最大
+  * 求能不能，存不存在
+  * 方案总数
 
-* Binary 
-  * Binary Tree
-  * Other Binary
-  * Invert Binary Tree (翻转二叉树)  
-    递归和非递归方式.
-* Sorted Array
-* List  
-* Peak Of List
-* Search Binary
-* 二分法
-
-**动态规划 Dynamic Programming**  
-*题目:*  
-
+#### 四个要素：  
+* 状态 state  
+* 方程：function
+* 初始化: initialization
+* 答案：answer
+   终点，始点  
+**题目：**  
 * unique paths 2.  
 * climbing stairs.  
 * jump game. &#160;&#160; jumo game 2.  
@@ -98,21 +100,32 @@
 * scramble String.  
 * k sum  
 * backpack  
+
+> 第四次课结束. 详情 [DP I](https://github.com/shuandroid/LintCode/edit/master/JiuZhang/DynamicProgrammingI.md)  
+
+### Dynamic Programming II  
+> 第五次课 DP II  
+
+* 区间型动态规划  
+* 双序列动态规划  
+
+**题目：**  
 * palindrome Partitioning II.
 * word break.
 * longest common ancestor
 * longest increasing subsequence
-* edit distance &#160;&#160;&#160;&#160; (finish)
+* edit distance
 * distinct subsequence
 * interleaving string
-* longest common Subsequence. 
-* Lowest Common Ancestor  
+* longest common Subsequence.
 
-
+> 第五次课结束. 详情 : [DP II](https://github.com/shuandroid/LintCode/edit/master/JiuZhang/DynamicProgramming2.md)  
 
 
 > waiting  
 > chenzhao@hustunique.com  
-> Blog:  http://shuandroid.github.io/
-> 算法笔记 欢迎交流学习  
+> Blog:  http://shuandroid.github.io/  
+> 算法笔记 欢迎交流学习    
+> 以上为自己在算法学习中的一些小收获和记录，不对之处请指出。  
+
 
