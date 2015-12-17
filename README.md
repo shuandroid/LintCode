@@ -181,7 +181,9 @@
 * K Sum  
 * Sort Colors
 * partition Array
-* Sort letter by Cases.
+* Sort letter by Cases.  
+
+
 > 第七次课结束 详情 : [Array](https://github.com/shuandroid/LintCode/edit/master/JiuZhang/Array.md)  
 
 
