@@ -20,15 +20,12 @@ LinkedHashMap = DoublyLinkedList + HashMap
 双向链表加hash表  
 > 保留了顺序的hashmap.  
 
- 
-
 **java :**  
 
 * hashTable
 	线程安全(thread safe)
 
 * hashSet
-
 
 * HashMap
 	线程不安全
@@ -68,7 +65,4 @@ hash 删除一个节点：
 * LFU Cache  
 	least frequently Used (最不常用的)
 
-
 * Median Number  
-
-
