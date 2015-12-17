@@ -39,7 +39,7 @@ array : quick sort
 * Remove Duplicates from  Sored List 
 * Remove Duplicates from  Sored List II  
 * Reverse Linked List II
-* Reverse Linked List #&160;#&160; 反转链表  
+* Reverse Linked List   反转链表  
 * partition list 
 * Reorder list 
 * Linked list Cycle
