@@ -162,6 +162,28 @@
 
 > 第六次课结束   详情 ：[LinkedList](https://github.com/shuandroid/LintCode/edit/master/JiuZhang/LinkedList.md)  
 
+### Array  
+> 第七次课 array  
+
+**题目**  
+* median of two Sorted Array 
+* Maximum Subarray  
+* Maximum Subarray
+* Maximum Subarray II
+* Maximum Subarray III
+* Minimum Subarray  
+* Best time to buy and sell stock 
+* find k
+* Subarray Sum  
+* Subarray Sum Closet
+* Two Sum
+* Three Sum  
+* K Sum  
+* Sort Colors
+* partition Array
+* Sort letter by Cases.
+> 第七次课结束 详情 : [Array](https://github.com/shuandroid/LintCode/edit/master/JiuZhang/Array.md)  
+
 
 	
 **END**  
