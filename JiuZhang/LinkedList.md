@@ -1,7 +1,6 @@
 ## Linked list  
 **第六次课**  
-*加强对Java链表的理解*  
-
+**加强对Java链表的理解**  
 
 技巧：  
 * Duplicating null  
