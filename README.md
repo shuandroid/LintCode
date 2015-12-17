@@ -123,6 +123,7 @@
 
 ### LinkedList  
 > 第六次课 LinkedList  
+
 **加强对Java链表的理解**  
 
 技巧：  
@@ -149,7 +150,7 @@
 * Remove Duplicates from  Sored List 
 * Remove Duplicates from  Sored List II  
 * Reverse Linked List II
-* Reverse Linked List #&160;#&160; 反转链表  
+* Reverse Linked List  反转链表  
 * partition list 
 * Reorder list 
 * Linked list Cycle
@@ -159,9 +160,11 @@
 * Copy List with Random Pointer
 * convert Sorted List
 
-> 第六次课结束  #&160;#&160;#&160;#&160; 详情 ：[LinkedList](https://github.com/shuandroid/LintCode/edit/master/JiuZhang/LinkedList.md)  
+> 第六次课结束   详情 ：[LinkedList](https://github.com/shuandroid/LintCode/edit/master/JiuZhang/LinkedList.md)  
 
 
+	
+**END**  
 
 > waiting  
 > chenzhao@hustunique.com  
