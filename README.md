@@ -186,11 +186,27 @@
 
 > 第七次课结束 详情 : [Array](https://github.com/shuandroid/LintCode/edit/master/JiuZhang/Array.md)  
 
+### Data Structure  
+> 第八次课  Data Structure  
+
+* 递增栈  
+* 递减栈  
+
+**题目：**   
+* Largest Rectangle in Histogrm   
+* 数字三角形
+* happy Number
+* rehashing 
+* LRU Cache  
+* LFU Cache  
+* Median Number  
+
+> 第八次课结束 详情 ： [Data Structure](https://github.com/shuandroid/LintCode/edit/master/JiuZhang/DataStructure.md)  
+
 
 	
 **END**  
 
-> waiting  
 > chenzhao@hustunique.com  
 > Blog:  http://shuandroid.github.io/  
 > 算法笔记 欢迎交流学习    
