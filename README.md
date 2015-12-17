@@ -203,8 +203,8 @@
 
 > 第八次课结束 详情 ： [Data Structure](https://github.com/shuandroid/LintCode/edit/master/JiuZhang/DataStructure.md)  
 
+**目前就是这样，如果有可能，以后还会继续添加新的内容**  
 
-	
 **END**  
 
 > chenzhao@hustunique.com  
