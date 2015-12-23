@@ -158,6 +158,54 @@ public class ArraySolution  {
     }
 
 
+    /**
+     * Maximum SubArray III
+     * 给定一个整数数组和一个整数k，找出k个不重叠子数组使得它们的和最大。
+     * 每个子数组的数字在数组中的位置应该是连续的。
+     * 返回最大的和。
+     *
+     * @param nums : a list of integers
+     * @param k : an integer denote to find k subArray
+     * @return : an integer the sum of k subArray
+     */
+    public int maxSubArray(ArrayList<Integer> nums, int k) {
+
+        int len = nums.size();
+        int[][] f = new int[k + 1][len];
+        for (int i = 1; i < k + 1; i++) {
+            int sum = 0;
+            for (int j = 0; j < i; j++) {
+                sum += nums.get(i);
+
+            }
+            f[i][i + 1] = sum;
+        }
+
+        for (int i = 1; i < len; i++) {
+            f[1][i] = Math.max(f[1][i - 1] + nums.get(i), nums.get(i));
+        }
+
+        for (int i = 2; i < k + 1; i++) {
+            for (int n = i;  n< len; n++) {
+                int curMax = f[i][n-1] + nums.get(n);
+                for (int j = i-2; j < n; j++) {
+                    if ((f[i-1][j] + nums.get(n)) > curMax) {
+                        curMax = f[i-1][j] + nums.get(n);
+                    }
+                }
+                f[i][n] = curMax;
+            }
+        }
+
+        int res = Integer.MIN_VALUE;
+        for (int i = k-1; i < len; i++){
+            if (f[k][i] > res) {
+                res = f[k][i];
+            }
+        }
+        return res;
+    }
+
 
 
 
