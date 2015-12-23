@@ -1,5 +1,7 @@
 package com.chen.algorihm.array;
 
+import java.util.ArrayList;
+
 /**
  * Created by chen
  * Date : 15-12-12
@@ -68,9 +70,94 @@ public class ArraySolution  {
      * @param nums : a list of integers
      * @return : A integer indicate the sum of max subarray
      */
+    //利用了贪婪算法 greed.
     public int maxSubArray(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int max = Integer.MIN_VALUE;
+        int sum = 0;
+        for (int i = 0; i < nums.length; i++){
+            sum += nums[i];
+            max = Math.max(max, sum);
+            sum = Math.max(sum, 0);
+        }
+        return max;
 
     }
+
+    //minSum 占据了一个很大的位置，它是前面所有数组里面加之后的最小的那一个值
+    //因为sum一直在加，从第一个到最后一个，当遇到所要寻找的，条件必然不是
+    //max(max, sum) 而应该是max(max, sum - minSum),
+    //即把最小的sum(旧的) 的值再次用sum(新的)减去，意义便是此时sum - minSum,
+    //是我们需要的几个数的数组，把之前的几个去掉。得到需要的最大和max.
+    public int maxSubArrayDP(int[] nums) {
+        if (nums == null || nums.length == 0) {
+            return 0;
+        }
+        int max = Integer.MIN_VALUE;
+        int sum = 0;
+        int minSum = 0;
+        for (int i = 0; i < nums.length; i++) {
+            sum += nums[i];
+            max = Math.max(max, sum - minSum);
+            minSum = Math.min(minSum, sum);
+        }
+        return max;
+    }
+
+    /**
+     * Maximum SubArray II
+     * 给定一个整数数组，找出两个不重叠子数组使得它们的和最大。
+     * 每个子数组的数字在数组中的位置应该是连续的
+     * return 最大的和
+     * 要求 Time Complexity is O(n)
+     *
+     * @param nums : a list of integers
+     * @return : an integer denotes the sum of max two array.
+     */
+
+    //思想： 这两个数组不是重叠的，必然是把一个大数组，分为两个小数组，
+    //不防假设一个从第一个开始向右出发，另外一个从最后一个向左出发。
+
+    public int maxTwoSubArrays(ArrayList<Integer> nums) {
+        int size = nums.size();
+        int[] left = new int[size];
+        int[] right = new int[size];
+        int sum = 0;
+        int minSum = 0;
+        int max = Integer.MIN_VALUE;
+
+        //left[i] 表示从第一个到第i个数组成的数组，的Maximum subArray.
+
+        for (int i = 0; i < size; i++) {
+            sum += nums.get(i);
+            max = Math.max(max, sum - minSum);
+            minSum = Math.min(sum, minSum);
+            left[i] = max;
+        }
+
+        //同理求处另外一个数组
+        sum = 0;
+        minSum = 0;
+        max = Integer.MIN_VALUE;
+        //right[i] 表示从第i个数到最后一个数组成的数组的Maximum SubArray.
+        for (int i = size - 1; i >= 0; i--) {
+            sum += nums.get(i);
+            max = Math.max(max, sum - minSum);
+            minSum = Math.min(sum, minSum);
+            right[i] = max;
+        }
+        max = Integer.MIN_VALUE;
+
+        for (int i = 0; i < size - 1; i++) {
+            max = Math.max(max, left[i] + right[i + 1]);
+        }
+        return max;
+
+    }
+
+
 
 
 
