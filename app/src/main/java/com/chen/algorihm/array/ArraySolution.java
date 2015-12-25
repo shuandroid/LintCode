@@ -207,6 +207,39 @@ public class ArraySolution  {
     }
 
 
+    /**
+     * Minimum SubArray
+     * 给定一个整数数组，找到一个具有最小和的子数组。返回其最小和。
+     * 给出数组[1, -1, -2, 1]，返回 -3
+     *
+     * @param nums : a list of integers
+     * @return : a integer indicate the sum of minimum subArray.
+     */
+    public int minSubArray(ArrayList<Integer> nums) {
+
+        if (nums == null) {
+            return 0;
+        }
+        int len = nums.size();
+        int[] localMin = new int[len];
+        int[] globalMin = new int[len];
+
+        //localMin[i] 存放的是当前数到这个地方的所组成的最小值，包含改nums[i]
+        //globalMin[i] 存放的是当前数和前面所有的数字组成的数组的最小的和，因此最后一个值为所需要的值
+        //还可以通过求该数组的每一个数的相反数，来组成一个新的数组B，而变成求B数组的最大和
+        for (int i = 0; i < len; i++) {
+            if (i == 0) {
+                localMin[0] = globalMin[0] = nums.get(0);
+            } else {
+                localMin[i] = Math.min(localMin[i - 1] + nums.get(i), nums.get(i));
+                globalMin[i] = Math.min(globalMin[i - 1], localMin[i]);
+            }
+        }
+
+        return globalMin[len - 1];
+
+
+    }
 
 
 }
