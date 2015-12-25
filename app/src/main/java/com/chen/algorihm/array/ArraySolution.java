@@ -1,6 +1,9 @@
 package com.chen.algorihm.array;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.HashMap;
 
 /**
  * Created by chen
@@ -238,8 +241,147 @@ public class ArraySolution  {
 
         return globalMin[len - 1];
 
+    }
+
+
+    /**
+     * Best time to buy and sell Stock
+     * 假设有一个数组，它的第i个元素是一支给定的股票在第i天的价格。
+     * 如果你最多只允许完成一次交易(例如,一次买卖股票),设计一个算法来找出最大利润。
+     * 给出一个数组样例 [3,2,3,1,2], 返回 1
+     * 先买后买，寻找最大的利润
+     * @param prices : given an integer array
+     * @return : Maximum profit
+     */
+    public int maxProfit(int[] prices) {
+        if (prices == null || prices.length == 0) {
+            return 0;
+        }
+        int min = Integer.MAX_VALUE;
+        int profit = 0;
+        for (int i : prices) {
+            //最小的留在min中
+            //用i减去前面搜索到的最小的min，比较它和profit的大小，选取大的.
+            min = i < min ? i : min;
+            profit = (i - min) > profit ? i - min : profit;
+        }
+
+        return profit;
+    }
+
+
+    /**
+     * SubArray Sum
+     * 给定一个整数数组，找到和为零的子数组。你的代码应该返回满足要求的子数组的起始位置和结束位置
+     * 给出 [-3, 1, 2, -3, 4]，返回[0, 2] 或者 [1, 3].
+     * @param nums : a list of integers
+     * @return : a list of integers includes the index of the first number
+     * and the index of the last number.
+     */
+
+
+    public ArrayList<Integer> subArraySum(int[] nums) {
+        int len = nums.length;
+
+
+        ArrayList<Integer> ans = new ArrayList<Integer>();
+        HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+
+        //利用了HashMap 的性质，首先map.put(0, -1),键值对，第一个为0 ，后面代表的是位置，-1，
+        // 表示后面的数的位置是从0开始的，其中 key：0， value：-1；
+        map.put(0, -1);
+
+        int sum = 0;
+        for (int i = 0; i < len; i++) {
+            sum += nums[i];
+
+            //map.containsKey(sum), 匹配是否sum为0，因为在前面存入了key：0
+            if (map.containsKey(sum)) {
+
+                //匹配到则map.get(sum), 返回的是value,
+                //因为value第一个是为-1, 其余各是 i ,(map.put(sum, i), 在后面)所以需要加1
+                ans.add(map.get(sum) + 1);
+                ans.add(i);
+                return ans;
+            }
+
+            map.put(sum, i);
+        }
+
+        return ans;
+    }
+
+
+    /**
+     * SubArray Sum Closest
+     * 给定一个整数数组，找到一个和最接近于零的子数组。返回第一个和最有一个指数。
+     * 你的代码应该返回满足要求的子数组的起始位置和结束位置
+     * @param nums : a list of integers
+     * @return :
+     */
+    public int[] subArraySumClosest(int[] nums) {
+
+        ArrayList<Integer> res = new ArrayList<Integer>();
+        if (nums == null || nums.length == 0) {
+            return new int[0];
+        }
+
+        int len = nums.length;
+        if (len == 1) {
+            res.add(0);
+            res.add(0);
+            return turn(res);
+        }
+
+        Pair[] sums = new Pair[len + 1];
+        int prev = 0;
+        sums[0] = new Pair(0, 0);
+        for (int i = 1; i <= len; i++) {
+            sums[i] = new Pair(prev + nums[i-1], i);
+            prev = sums[i].sum;
+        }
+        Arrays.sort(sums, new Comparator<Pair>() {
+            public int compare(Pair a, Pair b) {
+                return a.sum - b.sum;
+            }
+        });
+        int ans = Integer.MAX_VALUE;
+        for (int i = 1; i <= len; i++) {
+
+            if (ans > sums[i].sum - sums[i-1].sum) {
+                ans = sums[i].sum - sums[i-1].sum;
+                res.clear();
+                int[] temp = new int[]{sums[i].index - 1, sums[i - 1].index - 1};
+                Arrays.sort(temp);
+                res.add(temp[0] + 1);
+                res.add(temp[1]);
+            }
+        }
+
+        return turn(res);
 
     }
 
+    public int[] turn(ArrayList<Integer> res ) {
+
+
+        int len = res.size();
+        int[] answer = new int[len];
+        for (int i = 0; i < len; i++) {
+            answer[i] = res.get(i);
+        }
+        return answer;
+
+    }
+
+
+    class Pair {
+        int sum;
+        int index;
+        public Pair(int s, int i) {
+            sum = s;
+            index = i;
+        }
+    }
 
 }
