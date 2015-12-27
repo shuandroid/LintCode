@@ -362,6 +362,9 @@ public class ArraySolution  {
 
     }
 
+    /**
+     *  把ArrayList 转换成数组
+     */
     public int[] turn(ArrayList<Integer> res ) {
 
 
@@ -382,6 +385,94 @@ public class ArraySolution  {
             sum = s;
             index = i;
         }
+    }
+
+    /**
+     * Sort Colors
+     * 给定一个包含红，白，蓝且长度为n的数组，将数组元素进行分类使相同颜色的元素相邻，
+     * 并按照红、白、蓝的顺序进行排序。我们可以使用整数0，1和2分别代表红，白，蓝
+     *
+     * @param nums : a list of integer which is 0,1,2
+     */
+    public void sortColors(int[] nums) {
+
+        if (nums == null || nums.length == 0) {
+            return;
+        }
+
+        int p = 0;
+        int len = nums.length;
+        int i = 0;
+        while (i < len) {
+            if (nums[i] == 0) {
+                swap(nums, p, i);
+                p++;
+                i++;
+            } else if (nums[i] == 1) {
+                i++;
+            } else {
+                swap(nums, len - 1, i);
+                len--;
+            }
+        }
+    }
+
+    private void swap(int[] nums, int i, int j) {
+        int temp = nums[i];
+        nums[i] = nums[j];
+        nums[j] = temp;
+    }
+
+
+    /**
+     * Sort Colors
+     * 给定一个有n个对象（包括k种不同的颜色，并按照1到k进行编号）的数组，
+     * 将对象进行分类使相同颜色的对象相邻，并按照1,2，...k的顺序进行排序。
+     * 给出colors=[3, 2, 2, 1, 4]，k=4, 你的代码应该在原地操作使得数组变成[1, 2, 2, 3, 4]
+     * @param colors : a list of integer
+     * @param k : an integer
+     */
+    public void sortColorsTwo(int[] colors, int k) {
+        int count = 0;
+        int start = 0;
+        int end = colors.length - 1;
+        while (count < k) {
+            int min = Integer.MAX_VALUE;
+            int max = Integer.MIN_VALUE;
+
+            for (int i = start; i < end; i++) {
+                min = Math.min(min, colors[i]);
+                max = Math.max(max, colors[i]);
+            }
+            int left = start;
+            int right = end;
+            int current = left;
+            while (current <= right) {
+                if (colors[current] == min) {
+                    swap(left, current, colors);
+                    current++;
+                    left++;
+
+                } else if (colors[current] > min && colors[current] < max) {
+                    current++;
+                } else {
+                    int tmp = colors[current];
+                    swap(current, right, colors);
+                    right--;
+                }
+            }
+
+            count += 2;
+            start = left;
+            end = right;
+        }
+
+    }
+
+    private void swap(int left, int right, int[] colors) {
+        int tmp = colors[left];
+        colors[left] = colors[right];
+        colors[right] = tmp;
     }
 
 }
