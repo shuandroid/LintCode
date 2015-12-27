@@ -177,7 +177,6 @@
 * Subarray Sum  
 * Subarray Sum Closet
 * Two Sum
-* Three Sum  
 * K Sum  
 * Sort Colors
 * partition Array
