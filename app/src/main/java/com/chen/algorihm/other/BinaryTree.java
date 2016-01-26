@@ -16,6 +16,7 @@ public class BinaryTree {
     public class TreeNode {
         public int val;
         public TreeNode left, right;
+
         public TreeNode(int val) {
             this.val = val;
             this.left = this.right = null;
@@ -25,12 +26,11 @@ public class BinaryTree {
 
     /**
      * 先序遍历 : preorderTraversal
+     *
      * @param root
-     * @return
-     */
-
-    /**
-     * non-Recursion (Recommend)
+     * @return non-Recursion (Recommend)
+     * <p>
+     * 堆里存放树
      */
     public List<Integer> preorderTraverse(TreeNode root) {
         Stack<TreeNode> stack = new Stack<TreeNode>();
@@ -38,10 +38,14 @@ public class BinaryTree {
         if (root == null) {
             return preorder;
         }
+        //root 进栈
         stack.push(root);
         while (!stack.empty()) {
             TreeNode node = stack.pop();
+            //当前node的节点值放进list,
             preorder.add(node.val);
+            //如果node节点的右子树不为空，则进栈，再判断它的左子树(stack因为后进先出的原则，不可换位置)
+            //while 循环继续判断stack.pop()的node
             if (node.right != null) {
                 stack.push(node.right);
             }
@@ -60,12 +64,14 @@ public class BinaryTree {
         traverse(root, result);
         return result;
     }
+
     //把root 为跟的preorder加入到result 里面。
     private void traverse(TreeNode root, ArrayList<Integer> result) {
         if (root == null) {
             return;
         }
         result.add(root.val);
+        //先加left,后加right
         traverse(root.left, result);
         traverse(root.right, result);
     }
@@ -93,6 +99,7 @@ public class BinaryTree {
 
     /**
      * 中序遍历
+     *
      * @param root
      * @return
      */
@@ -100,7 +107,7 @@ public class BinaryTree {
         Stack<TreeNode> stack = new Stack<TreeNode>();
         ArrayList<Integer> result = new ArrayList<Integer>();
         TreeNode curt = root;
-        while (curt != null  || !stack.empty()) {
+        while (curt != null || !stack.empty()) {
             // get the root.
             while (curt != null) {
                 stack.add(curt);
@@ -112,7 +119,7 @@ public class BinaryTree {
             result.add(curt.val);
             curt = curt.right;
         }
-        return  result;
+        return result;
 
     }
 
@@ -120,7 +127,7 @@ public class BinaryTree {
      * 后序遍历
      * divide and conquer.
      */
-    public ArrayList<Integer> postorderTraversal (TreeNode root) {
+    public ArrayList<Integer> postorderTraversal(TreeNode root) {
 
         ArrayList<Integer> result = new ArrayList<Integer>();
         if (root == null) {
@@ -134,7 +141,7 @@ public class BinaryTree {
 
     }
 
-    public ArrayList<Integer> postorderTraversalTwo (TreeNode root) {
+    public ArrayList<Integer> postorderTraversalTwo(TreeNode root) {
         ArrayList<Integer> result = new ArrayList<Integer>();
         Stack<TreeNode> stack = new Stack<TreeNode>();
         TreeNode previous = null;
@@ -168,12 +175,13 @@ public class BinaryTree {
 
 
     /**
-     *  Invert Binary Tree : 翻转二叉树。
-     *  Traverse 递归实现，不利用递归的话，就利用栈实现。
+     * Invert Binary Tree : 翻转二叉树。
+     * Traverse 递归实现，不利用递归的话，就利用栈实现。
+     *
      * @param root : a TreeNode, the root of the binary tree.
      * @return : nothing
      */
-    public void invertBinaryTree (TreeNode root) {
+    public void invertBinaryTree(TreeNode root) {
 
         if (root == null) {
             return;
@@ -188,9 +196,10 @@ public class BinaryTree {
 
     /**
      * 不使用递归方式实现，利用栈，下面两个方法均是非递归。
+     *
      * @param root
      */
-    public void notRecursive( TreeNode root) {
+    public void notRecursive(TreeNode root) {
         if (root == null) {
             return;
         }
@@ -198,7 +207,7 @@ public class BinaryTree {
         TreeNode temp = null;
         stack.add(root);
         while (stack.size() != 0) {
-            TreeNode node =  stack.removeFirst();
+            TreeNode node = stack.removeFirst();
             temp = node.left;
             node.left = node.right;
             node.right = temp;
@@ -233,7 +242,6 @@ public class BinaryTree {
 
         }
     }
-
 
 
 }
