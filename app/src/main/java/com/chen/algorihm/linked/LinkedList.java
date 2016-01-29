@@ -14,6 +14,7 @@ public class LinkedList  {
 
     /**
      * Remove Duplicates from sorted array
+     * 移除重复的元素
      * sorted array means the array has benn sorted . from small to big.
      * @param nums : a array of integers
      * @return : return an integer
@@ -23,6 +24,7 @@ public class LinkedList  {
             return 0;
         }
         int size = 0;
+        //注意比较第一个和第二个
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != nums[size]) {
                 size += 1;
@@ -49,6 +51,7 @@ public class LinkedList  {
         }
         int size = 0;
         int i, j;
+        //允许出现两次
         for (i = 0; i < nums.length;) {
             int now = nums[i];
             for (j = i; j < nums.length; j++) {
@@ -60,6 +63,7 @@ public class LinkedList  {
                 }
 
             }
+            //j 代表了下一个需要的值的坐标(j跳出内层佛若循环， nums[j] != now)
             i = j;
         }
 
@@ -98,6 +102,7 @@ public class LinkedList  {
      *  Reverse Linked List II
      *  Given  1->2->3->4->5->NULL, m = 2 and n = 4,
      *  return 1->4->3->2->5->NULL.
+     *  指定特定位置的指针互换
      */
 
     /**
@@ -113,10 +118,12 @@ public class LinkedList  {
             return head;
         }
 
-        // 利用好特性
+        // 利用好特性, 使原链表中的第一个链表，处在第二的位置,方便处理问题
+        /******************************************************************/
         ListNode dummy = new ListNode(0);
         dummy.next = head;
         head = dummy;
+        /******************************************************************/
 
         // 先找到m 位置对应的前节点
         for (int i = 1; i < m; i++) {
