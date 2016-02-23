@@ -103,9 +103,6 @@ public class LinkedList  {
      *  Given  1->2->3->4->5->NULL, m = 2 and n = 4,
      *  return 1->4->3->2->5->NULL.
      *  指定特定位置的指针互换
-     */
-
-    /**
      *
      * @param head : is the head of the linked list
      * @param m :
@@ -173,23 +170,28 @@ public class LinkedList  {
         if (head == null) {
             return  null;
         }
+        //建立两个链表, left and right 为两个指向链表的指针
+        //left 的变化，也是leftDummy的变化
         ListNode leftDummy = new ListNode(0);
+        //从0开始也是为了left.next = head, 改变原链表第一位置为第二位置
         ListNode rightDummy = new ListNode(0);
         ListNode left = leftDummy, right = rightDummy;
 
         while (head != null) {
+            //while循环 和 条件判断
             if (head.val < x) {
                 left.next = head;
                 left = head;
-
             } else {
                 right.next = head;
                 right = head;
             }
             head = head.next;
         }
+        //right.next 必然为null ， left.next 指向rightDummy的next（第一个为0）
         right.next = null;
         left.next = rightDummy.next;
+        //返回leftDummy.next即为原来的head划分后的结果
         return leftDummy.next;
 
     }
